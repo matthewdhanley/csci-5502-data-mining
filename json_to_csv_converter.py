@@ -18,6 +18,7 @@ def read_and_write_file(json_file_path, csv_file_path, column_names):
                 line_contents = json.loads(line)
                 csv_file.writerow(get_row(line_contents, column_names))
 
+
 def get_superset_of_column_names_from_file(json_file_path):
     """Read in the json dataset file and return the superset of column names."""
     column_names = set()
@@ -28,6 +29,7 @@ def get_superset_of_column_names_from_file(json_file_path):
                     set(get_column_names(line_contents).keys())
                     )
     return column_names
+
 
 def get_column_names(line_contents, parent_key=''):
     """Return a list of flattened key names given a dict.
@@ -51,6 +53,7 @@ def get_column_names(line_contents, parent_key=''):
         else:
             column_names.append((column_name, v))
     return dict(column_names)
+
 
 def get_nested_value(d, key):
     """Return a dictionary item given a dictionary `d` and a flattened key from `get_column_names`.
@@ -76,6 +79,7 @@ def get_nested_value(d, key):
     sub_dict = d[base_key]
     return get_nested_value(sub_dict, sub_key)
 
+
 def get_row(line_contents, column_names):
     """Return a csv compatible row given column names and a dict."""
     row = []
@@ -91,6 +95,7 @@ def get_row(line_contents, column_names):
         else:
             row.append('')
     return row
+
 
 if __name__ == '__main__':
     """Convert a yelp dataset file from json to csv."""
