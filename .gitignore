@@ -1,0 +1,15 @@
+.idea/
+[Tt]est/
+*.pi
+*.pickle
+.ipynb_checkpoints/
+__pycache__/
+*.txt
+reviews/
+reviews_by_business_id/
+img/
+*.zip
+*.svg
+reviews_3mo/
+*.csv
+*.png
